@@ -151,6 +151,10 @@ NAVIGATION
 	@include tablet {
 		margin-bottom: .75em;
 	}
+
+	@include desktop {
+		margin-bottom: 0;
+	}
 }
 
 .nav__list {
