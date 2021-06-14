@@ -1,0 +1,477 @@
+/*****
+COLORS 
+*****/
+
+$white: #FFFFFF;
+$navy: #070724;
+$dark-gray: #38384F;
+$light-gray: #838391;
+$light-blue: #419EBB;
+$yellow: #EDA249;
+$purple: #6F2ED6;
+$dark-orange: #D14C32;
+$red: #D83A34;
+$light-orange: #CD5120;
+$cyan: #1EC2A4;
+$dark-blue: #2D68F0;
+
+/**********
+BREAKPOINTS 
+**********/
+
+@mixin mobileLg {
+	@media (min-width: 576px) { @content; }
+}
+
+@mixin tablet {
+	@media (min-width: 768px) { @content; }
+}
+
+@mixin desktop {
+	@media (min-width: 1200px) { @content; }
+}
+
+/************
+GLOBAL STYLES
+************/
+
+*, *::before, *::after {
+	box-sizing: border-box;
+	color: $white;
+	margin: 0;
+	transition: all 0.2s ease-out;
+}
+
+body {
+	margin: 1em 0;
+	background-color: $navy;
+	background-image: url(./images/background-stars.svg);
+	background-position: center;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1 {
+	font-family: 'Antonio', sans-serif;
+	font-size: 80px;
+	line-height: 103px;
+}
+
+h2 {
+	font-family: 'Antonio', sans-serif;
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 52px;
+	letter-spacing: -1.5;
+}
+
+h3 {
+	font-family: 'Spartan', sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 25px;
+	letter-spacing: 2.6;
+}
+
+h4 {
+	font-family: 'Spartan', sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 25px;
+	letter-spacing: 1;
+}
+
+p {
+	font-family: 'Spartan', sans-serif;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+/***************
+REUSABLE CLASSES
+***************/
+
+.container {
+	margin: 0 auto;
+	width: 90%;
+
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.spaced {
+	justify-content: space-between;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.link {
+	color: $light-gray;
+	cursor: pointer;
+	text-decoration: none;
+	border-bottom: 3px solid transparent;
+}
+
+/*********
+NAVIGATION
+*********/
+
+.nav {
+	border-bottom: 2px solid $dark-gray;
+	padding-bottom: 1.5em;
+}
+
+.nav__inner {
+	@include tablet {
+		flex-direction: column;
+		gap: 1.5em;
+	}
+
+	@include desktop {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.nav__heading {
+	font-size: 28px;
+	line-height: 100%;
+	letter-spacing: -1.05px;
+	white-space: nowrap;
+
+	@include tablet {
+		margin-bottom: .75em;
+	}
+}
+
+.nav__list {
+	justify-content: space-evenly;
+}
+
+.nav__item {
+	color: #C1C1C8;
+	text-transform: uppercase;
+
+	&:hover {
+		color: white;
+	}
+}
+
+.nav__hamburger {
+	cursor: pointer;
+}
+
+.nav__inner > * {
+	@include desktop {
+		width: 100%
+	}		
+}
+
+.mobile-menu {
+	position: absolute;
+	z-index: 1;
+	background-color: $navy;
+	width: 100%;
+	padding-bottom: 4em;
+}
+
+.mobile-menu__link {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid $dark-gray;
+	padding: 16px 0 16px 0;
+}
+
+.mobile-menu__circle {
+	height: 20px;
+	width: 20px;
+	border-radius: 100px;
+}
+
+.mobile-menu__heading {
+	font-size: 15px;
+	line-height: 25px;
+	letter-spacing: 1.36px;
+	text-transform: uppercase;
+	margin-left: 1.5em;
+}
+
+.mobile-menu__arrow {
+	margin-left: auto;
+}
+
+/************
+PLANET DETAIL
+************/
+
+.planet {
+	@include desktop {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+.planet__menu {
+	border-bottom: 2px solid $dark-gray;
+}
+
+.menu__item {
+	cursor: pointer;
+	color: $light-gray;
+	font-size: 9px;
+	letter-spacing: 1.93px;
+	padding: .75em 0;
+}
+
+.image__outer {
+	display: flex;
+	align-items: center;
+  height: 22em;
+  
+  @include tablet {
+  	margin: 4em 0;
+  }
+}
+
+.image__inner {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: fit-content;
+	margin: 0 auto;
+}
+
+.image__main {
+	width: 50%;
+
+	@include tablet {
+		width: 60%;
+	}
+
+	@include desktop {
+		width: 100%;
+	}
+}
+
+.image__surface {
+	position: absolute;
+	top: 70%;
+	width: 80px;
+
+	@include tablet {
+		width: 120px;
+	}
+
+	@include desktop {
+		width: 160px;
+	}
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+
+	@include tablet {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	@include desktop {
+		flex-direction: column;
+		justify-content: flex-start;
+		width: 100%;
+	}
+}
+
+.info__left {
+	text-align: center;
+	gap: 1em;
+
+	@include tablet {
+		width: 50%;
+		text-align: left;
+	}
+
+	@include desktop {
+		width: 100%;
+	}
+}
+
+.info__name {
+	text-transform: uppercase;
+	margin-bottom: .5em;
+
+	@include tablet {
+		font-size: 48px;
+	}
+
+	@include desktop {
+		font-size: 80px;
+		line-height: 103px;
+	}
+}
+
+.info__description {
+	font-size: 11px;
+	line-height: 22px;
+	margin-bottom: 1.5em;
+
+	@include tablet {
+		margin-bottom: 3em;
+	}
+
+	@include desktop {
+		font-size: 14px;
+		line-height: 25px;
+	}
+}
+
+.info__source {
+	color: $light-gray;
+	font-size: 12px;
+
+	@include desktop {
+		font-size: 14px;
+	}
+}
+
+.info__link {
+	color: $light-gray;
+	font-weight: bold;
+
+	@include desktop {
+		font-size: 14px;
+	}
+}
+
+.info__right {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	width: 40%;
+	margin-top: 3em;
+
+	@include desktop {
+		width: 100%;
+	}
+}
+
+
+
+.box {
+	border: 1px solid $dark-gray;
+	cursor: pointer;
+	padding: .4em 1em;
+
+	&:hover {
+		background-color: $dark-gray;
+	}
+}
+
+.box__text {
+	font-size: 9px;
+	font-weight: bold;
+	letter-spacing: 1.93px;
+
+	@include desktop {
+		font-size: 12px;
+		letter-spacing: 2.57px;
+	}
+}
+
+.box__text--num {
+	color: $light-gray;
+}
+
+.split {
+	@include desktop {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 10em;
+		margin-bottom: 6em;
+	}
+}
+
+.split__left {
+	@include desktop {
+		width: 50%;
+	}
+}
+
+.split__right {
+	@include desktop {
+		width: 33%;
+	}
+}
+
+.stats {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin-top: 2em;
+
+	@include tablet {
+		flex-direction: row;
+	}
+
+	@include desktop {
+		width: 100%;
+		margin-top: 4em;
+	}
+}
+
+.stat__box {
+	border: 1px solid $dark-gray;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em 1.5em;
+	flex-grow: 1;
+
+	@include tablet {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: .75em;
+	}
+}
+
+.stat__heading {
+	font-size: 8px;
+	font-weight: bold;
+	line-height: 16px;
+	letter-spacing: 0.73px;
+	color: $light-gray;
+
+	@include desktop {
+		font-size: 11px;
+		line-height: 25px;
+		letter-spacing: 1px;
+	}
+}
+
+.stat__info {
+	font-size: 20px;
+	letter-spacing: -.75px;
+	line-height: 100%;
+	text-transform: uppercase;
+
+	@include tablet {
+		font-size: 24px;
+		letter-spacing: -.9px;
+	}
+
+	@include desktop {
+		font-size: 40px;
+		letter-spacing: -1.5px;
+	}
+}
