@@ -16,7 +16,7 @@ function App() {
 	}
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename="planets-fact-site">
     	<Nav 
     	breakPoints={breakPoints}
     	planetData={planetData}
@@ -24,7 +24,7 @@ function App() {
 
     	<Switch>
     		<Route exact path="/">
-    			<Redirect to="/Earth" />
+    			<Redirect to="/earth" />
     		</Route>
     		{planetData.map((planet) => 
 	    		<Route
